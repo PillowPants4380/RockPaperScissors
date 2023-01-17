@@ -1,14 +1,38 @@
 "use strict"
 
 
-playRockPaperScissors();
+startGame();
+
+function startGame(){
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i <= 5; i++){
+        if (playerScore === 3){
+            console.log("Player wins the game!")
+            break;
+        }
+        if(computerScore === 3){
+            console.log("Computer wins the game!")
+            break;
+        }
+        let result = playRockPaperScissors();
+        if(result === "player"){
+            playerScore++;
+        }else if(result === "computer"){
+            computerScore++;
+        }else {
+            i--;
+        }
+    }
+}
+
 
 function playRockPaperScissors(){
     let computerChoice = getComputerChoice().toLowerCase();
     let playerChoice = getPlayerChoice().toLowerCase();
 
     if(validatePlayerChoice(playerChoice)){
-        prompt(evaluateChoices(computerChoice, playerChoice));
+        return evaluateChoices(computerChoice, playerChoice);
     }else{
         prompt("Invalid Player Choice");
     }
@@ -41,24 +65,29 @@ function validatePlayerChoice(input){
 
 function evaluateChoices(computerChoice, playerChoice){
     if(computerChoice === playerChoice){
+        console.log("Tie - Next Round")
         return "tie";
     }
     if(computerChoice === "paper"){
         if(playerChoice ==="rock"){
-            return "Computer wins with " + computerChoice + ". " + "Player chose " + playerChoice;
+            console.log("You lose, " + computerChoice + " beats " + playerChoice);
+            return "computer";
         }
     }
     if(computerChoice === "rock"){
         if(playerChoice === "scissors"){
-            return "Computer wins with " + computerChoice + ". " + "Player chose " + playerChoice;
+            console.log("You lose, " + computerChoice + " beats " + playerChoice);
+            return "computer";
         }
     }
     if(computerChoice === "scissors"){
         if(playerChoice === "paper"){
-            return "Computer wins with " + computerChoice + ". " + "Player chose " + playerChoice;
+            console.log("You lose, " + computerChoice + " beats " + playerChoice);
+            return "computer";
         }
     }
-    return "Player wins with " + playerChoice + ". " + "Computer chose " + computerChoice;
+    console.log("You win, " + playerChoice + " beats " + computerChoice);
+            return "player";
 }
 
 
