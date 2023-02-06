@@ -1,0 +1,28 @@
+html{
+    font-size: 15px;
+    font-family: sans-serif;
+    background-color: black;
+
+}
+
+.container{
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.choices{
+    border: .5rem solid white;
+    padding: 3rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem .5 rem;
+    text-align: center;
+    color: white;
+    background-color: black;
+    text-shadow: 0 0 .5rem black;
+    
+
+}

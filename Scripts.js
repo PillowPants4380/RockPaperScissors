@@ -1,7 +1,7 @@
 "use strict"
 
 
-startGame();
+/*startGame();*/
 
 function startGame(){
     let playerScore = 0;
